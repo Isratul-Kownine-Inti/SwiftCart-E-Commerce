@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <!-- title  -->
-      <title>SwiftCart E-Commerce</title>
-   <!-- tailwind and daisy ui  -->
+    <!-- title  -->
+    <title>SwiftCart E-Commerce</title>
+    <!-- tailwind and daisy ui  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- font awesome  -->
@@ -20,12 +20,69 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-        <!-- stylesheet -->
-         <link rel="stylesheet" href="styles/style.css">
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
-  
+<body class="">
+
+    <!-- navbar start  -->
+    <section class="mx-auto w-11/12">
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="navbar-start">
+
+                <a class="text-2xl font-bold text-blue-700 ">SwiftCart</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li class="text-blue-700"><a>Home</a></li>
+                    <li><a>Products</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <a class="btn"><i class="fa-solid fa-cart-shopping"></i></a>
+
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2  shadow">
+                        <li class="text-blue-700"><a>Home</a></li>
+                        <li><a>Products</a></li>
+                        <li><a>About</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- navbar end  -->
+
+    <!-- banner start  -->
+    <section class="mt-10 mx-auto w-11/12">
+        <div class="hero min-h-screen"
+            style="background-image: url(./Assets/banner-image.png);">
+            <div class="hero-overlay"></div>
+            <div class="hero-content text-neutral-content text-start">
+                <div class="">
+                    <h1 class="mb-5 text-5xl font-bold ">Best Collection For You</h1>
+                    <p class="mb-5 font-medium">
+                       Discover the latest trends in fashion, electronics and more.<br>
+                       Shop with confidence and style with SwiftCart.
+                    </p>
+                    <button class="btn btn-primary ">Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner end  -->
 
     <script src="scripts/index.js"></script>
 </body>

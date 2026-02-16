@@ -28,6 +28,8 @@ const displayCategories = (categories) =>{
     
 }
 
+// load all products 
+
 const loadAllProducts = () =>{
     const url = "https://fakestoreapi.com/products";
 
@@ -36,6 +38,7 @@ const loadAllProducts = () =>{
     .then(data =>displayAllProducts(data))
 }
 
+// display all products 
 const displayAllProducts = (products) =>{
     console.log(products)
     
@@ -63,7 +66,7 @@ const displayAllProducts = (products) =>{
                         <p class="font-bold text-xl">$${product.price}</p>
                         <div class="card-actions justify-between">
 
-                            <button class="btn btn-outline px-5"><i class="fa-regular fa-eye"></i>Details</button>
+                            <button onclick="loadProductDetails(${product.id})" class="btn btn-outline px-5"><i class="fa-regular fa-eye"></i>Details</button>
                             <button class="btn btn-primary px-10"><i class="fa-solid fa-cart-shopping"></i>Add</button>
 
 
@@ -116,7 +119,7 @@ const displayCategoryProducts = (categoryProducts)=>{
                         <p class="font-bold text-xl">$${categoryProduct.price}</p>
                         <div class="card-actions justify-between">
 
-                            <button class="btn btn-outline px-5"><i class="fa-regular fa-eye"></i>Details</button>
+                            <button onclick="loadProductDetails(${categoryProduct.id})" class="btn btn-outline px-5"><i class="fa-regular fa-eye"></i>Details</button>
                             <button class="btn btn-primary px-10"><i class="fa-solid fa-cart-shopping"></i>Add</button>
 
 
@@ -131,6 +134,29 @@ const displayCategoryProducts = (categoryProducts)=>{
     })
 }
 
+
+const loadProductDetails = (id) =>{
+    const url =`https://fakestoreapi.com/products/${id}`
+    fetch(url)
+    .then(res=>res.json())
+    .then(data =>displayProductDetails(data))
+}
+
+const displayProductDetails = (product)=>{
+    console.log(product)
+
+    const detailContainer = document.getElementById("detail-container");
+    detailContainer.innerHTML =` <div class="space-y-3">
+        <h2 class="font-bold text-xl">${product.title}</h2>
+        <p class="font-medium text-gray-600">${product.description}</p>
+        <span class="font-bold">$${product.price}</span>
+        <span class="text-gray-500 px-10"><i class="fa-solid fa-star text-amber-600 mr-2 "></i>${product.rating.rate}</span>
+      </div>
+        <button class="btn btn-primary">Add To Cart</button> `;
+
+    document.getElementById("product_detail").showModal()
+
+}
 
 loadCategories()
 // loadAllProducts()

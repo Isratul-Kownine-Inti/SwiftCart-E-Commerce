@@ -1,8 +1,20 @@
 
-const removeActive = () =>{
+const removeActive = () => {
     const categoryButtons = document.querySelectorAll(".category-buttons");
     // console.log(categoryButtons);
     categoryButtons.forEach(button => button.classList.remove("active"));
+}
+
+
+const manageSpinner = (status) => {
+    if (status == true) {
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("products-container").classList.add("hidden");
+    }
+    else {
+        document.getElementById("spinner").classList.add("hidden");
+        document.getElementById("products-container").classList.remove("hidden");
+    }
 }
 
 
@@ -25,7 +37,7 @@ const displayCategoriesButton = (categories) => {
     allButton.innerText = "All";
     categoryContainer.appendChild(allButton);
 
-    allButton.addEventListener('click', ()=>{
+    allButton.addEventListener('click', () => {
         loadAllProducts();
     })
 
@@ -49,6 +61,7 @@ const displayCategoriesButton = (categories) => {
 // load all products 
 
 const loadAllProducts = () => {
+    manageSpinner(true);
     const url = "https://fakestoreapi.com/products";
 
     fetch(url)
@@ -58,6 +71,7 @@ const loadAllProducts = () => {
 
 //load category products
 const loadCategoryProducts = (category) => {
+    manageSpinner(true);
     const url = `https://fakestoreapi.com/products/category/${category}`
     fetch(url)
         .then(res => res.json())
@@ -111,6 +125,7 @@ const displayAllProducts = (products) => {
         `
         productsContainer.append(allProductsCard)
     })
+    manageSpinner(false);
 }
 
 

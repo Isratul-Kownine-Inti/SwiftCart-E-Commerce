@@ -1,11 +1,11 @@
-
+// remove active class from the category buttons 
 const removeActive = () => {
     const categoryButtons = document.querySelectorAll(".category-buttons");
     // console.log(categoryButtons);
     categoryButtons.forEach(button => button.classList.remove("active"));
 }
 
-
+// manage the spinner 
 const manageSpinner = (status) => {
     if (status == true) {
         document.getElementById("spinner").classList.remove("hidden");
@@ -18,7 +18,7 @@ const manageSpinner = (status) => {
 }
 
 
-// load the categories 
+// load the categories Button
 const loadCategoriesButton = () => {
 
     const url = "https://fakestoreapi.com/products/categories";
@@ -27,6 +27,7 @@ const loadCategoriesButton = () => {
         .then(data => displayCategoriesButton(data))
 }
 
+//displays the category buttons and all button
 const displayCategoriesButton = (categories) => {
 
     const categoryContainer = document.getElementById("categories");
@@ -131,7 +132,7 @@ const displayAllProducts = (products) => {
 
 
 
-
+//load  product details
 
 const loadProductDetails = (id) => {
     const url = `https://fakestoreapi.com/products/${id}`
@@ -140,6 +141,8 @@ const loadProductDetails = (id) => {
         .then(data => displayProductDetails(data))
 }
 
+
+//display productDetails
 const displayProductDetails = (product) => {
     console.log(product)
 
@@ -156,5 +159,5 @@ const displayProductDetails = (product) => {
 
 }
 
-loadCategoriesButton()
-// loadAllProducts()
+loadCategoriesButton();
+

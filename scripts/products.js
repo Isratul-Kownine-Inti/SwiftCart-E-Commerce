@@ -31,16 +31,7 @@ const loadCategoriesButton = () => {
 const displayCategoriesButton = (categories) => {
 
     const categoryContainer = document.getElementById("categories");
-    categoryContainer.innerHTML = "";
-
-    const allButton = document.createElement("button");
-    allButton.className = "btn btn-primary rounded-full";
-    allButton.innerText = "All";
-    categoryContainer.appendChild(allButton);
-
-    allButton.addEventListener('click', () => {
-        loadAllProducts();
-    })
+   
 
     categories.forEach(category => {
         const cateGoryDiv = document.createElement("div");
@@ -98,7 +89,7 @@ const displayAllProducts = (products) => {
         allProductsCard.innerHTML = `
               <div class="card bg-base-100 w-full md:w-80 shadow-sm product-card">
                     <figure>
-                        <img class="px-8 py-5 h-82 bg-gray-200 " src=${product.image} alt="backpack" />
+                        <img class="px-8 py-5 h-82 bg-gray-200  " src=${product.image} alt="" />
                     </figure>
                     <div class="card-body">
                         <div class="flex justify-between mt-2">
@@ -159,5 +150,6 @@ const displayProductDetails = (product) => {
 
 }
 
+loadAllProducts();
 loadCategoriesButton();
 

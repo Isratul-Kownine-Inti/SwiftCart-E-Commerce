@@ -1,3 +1,16 @@
+
+let cart = [];
+
+const addToCart = (id) =>{
+
+    if(!cart.includes(id))
+    {
+        cart.push(id);
+    }
+
+    const cartCount = document.getElementById("cart-count");
+    cartCount.innerText = cart.length;
+}
 // remove active class from the category buttons 
 const removeActive = () => {
     const categoryButtons = document.querySelectorAll(".category-buttons");
@@ -105,7 +118,7 @@ const displayAllProducts = (products) => {
                         <div class="card-actions justify-between">
 
                             <button onclick="loadProductDetails(${product.id})" class="btn btn-outline px-5"><i class="fa-regular fa-eye"></i>Details</button>
-                            <button class="btn btn-primary px-10"><i class="fa-solid fa-cart-shopping"></i>Add</button>
+                            <button onclick=addToCart("${product.id}") class="btn btn-primary px-10"><i class="fa-solid fa-cart-shopping"></i>Add</button>
 
 
 
@@ -144,7 +157,7 @@ const displayProductDetails = (product) => {
         <span class="font-bold">$${product.price}</span>
         <span class="text-gray-500 px-10"><i class="fa-solid fa-star text-amber-600 mr-2 "></i>${product.rating.rate}</span>
       </div>
-        <button class="btn btn-primary">Add To Cart</button> `;
+        <button  onclick=addToCart("${product.id}") class="btn btn-primary">Add To Cart</button> `;
 
     document.getElementById("product_detail").showModal()
 
